@@ -1,8 +1,8 @@
-# Commons AI Categorizer
+# CattingAssist
 
 This repository contains:
 
-- `commons-ai-categorizer.js`: Wikimedia Commons user script UI + Generate/Submit/Next flow.
+- `catting-assist.js`: Wikimedia Commons user script UI + Generate/Submit/Next flow.
 - `ai-gateway.mjs`: Local API gateway that exposes OpenAI-compatible chat completions and forwards to Ollama.
 - `ai-config.json`: Local gateway configuration.
 
@@ -12,7 +12,7 @@ This setup uses **Ollama** (FOSS-friendly local model runner) with the default m
 
 - `qwen2.5:7b-instruct`
 
-You can change model names in `ai-config.json` and in `commons-ai-categorizer.js`.
+You can change model names in `ai-config.json` and in `catting-assist.js`.
 
 ## Quick setup (Windows/macOS/Linux)
 
@@ -30,7 +30,7 @@ ollama pull qwen2.5:7b-instruct
 npm start
 ```
 
-5. Add `commons-ai-categorizer.js` to your Commons user JavaScript page (`User:<name>/common.js`) or import it.
+5. Add `catting-assist.js` to your Commons user JavaScript page (`User:<name>/common.js`) or import it.
 
 ## Userscript endpoint
 
@@ -38,7 +38,7 @@ The userscript is preconfigured to call:
 
 - `http://127.0.0.1:8787/v1/chat/completions`
 
-If you change gateway host/port, update `CONFIG.aiEndpoint` in `commons-ai-categorizer.js`.
+If you change gateway host/port, update `CONFIG.aiEndpoint` in `catting-assist.js`.
 
 ## Config reference (`ai-config.json`)
 

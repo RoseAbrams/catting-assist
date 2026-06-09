@@ -1,5 +1,5 @@
 {
-  "name": "commons-ai-categorizer",
+  "name": "catting-assist",
   "version": "1.0.0",
   "private": true,
   "description": "Wikimedia Commons AI-assisted categorization userscript with local Ollama gateway",

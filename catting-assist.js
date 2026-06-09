@@ -1,5 +1,6 @@
+// IMPORTANT This userscript is developed at github.com/RoseAbrams/catting-assist and is only copied manually to User:Rose Abrams/CattingAssist.js on Wikimedia Commons. If you are viewing this file on a WMF project, it may be outdated. Please check the GitHub repository for the latest version and report any issues there.
 /*
- * Commons AI Categorizer user script
+ * Catting Assist user script
  *
  * Install on Wikimedia Commons via your user JavaScript page, for example:
  * User:<YourName>/common.js
