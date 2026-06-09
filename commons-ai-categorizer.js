@@ -245,7 +245,7 @@
             action: 'edit',
             title: pageData.title,
             text: newText,
-            summary: 'Adding categories (AI-assisted)',
+            summary: 'Adding categories ([[User:Rose Abrams/CattingAssist|AI-assisted]])',
             baserevid: pageData.revId,
             nocreate: 1
         });
