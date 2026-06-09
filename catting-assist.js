@@ -1,8 +1,8 @@
-// IMPORTANT This userscript is developed at github.com/RoseAbrams/catting-assist and is only copied manually to User:Rose Abrams/CattingAssist.js on Wikimedia Commons. If you are viewing this file on a WMF project, it may be outdated. Please check the GitHub repository for the latest version and report any issues there.
+// IMPORTANT This userscript is developed at github.com/RoseAbrams/catting-assist and is only copied manually to [[User:Rose Abrams/CattingAssist.js]] on Wikimedia Commons. If you are viewing this file on a WMF project, it may be outdated. Please check the GitHub repository for the latest version and report any issues there.
 /*
  * Catting Assist user script
  *
- * Install on Wikimedia Commons via your user JavaScript page, for example:
+ * Install on Wikimedia Commons via your user JavaScript page, at:
  * User:<YourName>/common.js
  */
 (function () {
@@ -15,7 +15,7 @@
     var CONFIG = {
         // Default points to the local gateway included in this repository.
         // The gateway forwards requests to a local Ollama model.
-        aiEndpoint: 'http://127.0.0.1:8787/v1/chat/completions',
+        aiEndpoint: 'http://localhost:8787/v1/chat/completions',
         aiApiKey: '',
         aiModel: 'qwen2.5:7b-instruct',
         temperature: 0.1,
@@ -134,8 +134,9 @@
     function buildPrompt(title, wikitext) {
         return [
             'Task: Suggest suitable Wikimedia Commons categories for this file page.',
-            'Use only the provided title and page wikitext.',
-            'Do not browse the internet and do not assume external facts.',
+            'Use only the provided title and page wikitext. The most useful information is often in the title and the file description.',
+            //'Do not browse the internet and do not assume external facts.',
+            'Do not add categories based on the templates, since those often automatically add categories.',
             'Input may be in any major language.',
             'Return only category wikimarkup lines in this exact format:',
             '[[Category:Category name]]',
