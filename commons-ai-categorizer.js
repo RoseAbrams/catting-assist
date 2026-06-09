@@ -12,11 +12,11 @@
     }
 
     var CONFIG = {
-        // Use an OpenAI-compatible HTTPS endpoint. FOSS-friendly options include
-        // self-hosted LocalAI, vLLM, text-generation-inference, or OpenWebUI proxy.
-        aiEndpoint: '', // Example: 'https://ai.example.org/v1/chat/completions'
-        aiApiKey: '',   // Optional bearer token if your endpoint requires it
-        aiModel: 'llama3.1:8b-instruct',
+        // Default points to the local gateway included in this repository.
+        // The gateway forwards requests to a local Ollama model.
+        aiEndpoint: 'http://127.0.0.1:8787/v1/chat/completions',
+        aiApiKey: '',
+        aiModel: 'qwen2.5:7b-instruct',
         temperature: 0.1,
         maxTokens: 500
     };
