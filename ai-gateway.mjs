@@ -11,17 +11,16 @@ const defaultConfig = {
   requestTimeoutMs: 90000,
 };
 
-const defaultPrompt = [
-  "Task: Suggest suitable Wikimedia Commons categories for this file page.",
-  "Use only the provided title and page wikitext. The most useful information is often in the title and the file description.",
-  //'Do not browse the internet and do not assume external facts.',
-  "Do not add categories based on the templates, since those often automatically add categories.",
-  "Make the categories as narrow as possible, many specific categories are better than a few broad ones.",
-  "Input may be in any major language.",
-  "Return only category wikimarkup lines in this exact format:",
-  "[[Category:Category name]]",
-  "No explanations. One category per line.",
-];
+const defaultPrompt =
+  "Task: Suggest suitable Wikimedia Commons categories for this file page.\n" +
+  "Use only the provided title and page wikitext. The most useful information is often in the title and the file description.\n" +
+  //"Do not browse the internet and do not assume external facts.\n"+
+  "Do not add categories based on the templates, since those often automatically add categories.\n" +
+  "Make the categories as narrow as possible, many specific categories are better than a few broad ones.\n" +
+  "Input may be in any major language.\n" +
+  "Return only category wikimarkup lines in this exact format:\n" +
+  "[[Category:Category name]]\n" +
+  "No explanations. One category per line.\n";
 
 function loadConfig() {
   const cfgPath = process.env.AI_CONFIG_PATH || "./ai-config.json";
@@ -92,8 +91,10 @@ function readJsonBody(req) {
 async function callOllama(chatCompletionRequest) {
   const model = chatCompletionRequest.model || config.defaultModel;
   const messages = Array.isArray(chatCompletionRequest.messages)
-    ? [...defaultPrompt, ...chatCompletionRequest.messages]
+    ? chatCompletionRequest.messages
     : [];
+  messages[1].content = defaultPrompt + (messages[1]?.content || "");
+  console.log(messages);
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), config.requestTimeoutMs);
